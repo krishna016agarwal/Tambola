@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>HOUSIE</h1>
+  <div class="llm">
+    <button class="ll">START</button>
+ 
+    <button class="ll"id="jk" style="font-size:larger ;background-color: rgb(240, 240, 148);color: red;">NUMBER</button>
+    <button class="ll"id="pp" style="background-color: green;">NEW</button>
+    
+    <div class="jjk" ></div>
+  </div>
+ 
+    <script>
+       v=(h)=>{
+        console.log(h)
+       bb=document.querySelector(`#a${h}`);
+       bb.classList.add("ji")
+
+}
+hi=document.querySelector(".pannel");
+
+s=document.querySelector("#pp")
+s.addEventListener("click",()=>{
+  location.reload()})
+  y=document.querySelector("#jk");
+ 
+l=[];
+ function make(){
+  m=document.querySelector(".jjk");
+  for(let i=1;i<=90;i++){
+    l.push(i);
+  
+    a=document.createElement("div");
+    a.classList.add("jj");
+    a.innerHTML=i;
+    a.setAttribute("id","a"+i);
+    m.append(a);
+    
+  }
+  
+ }
+ make()
+ kk=()=>{
+      j=Math.floor(Math.random()*l.length);
+      
+     
+      h=l[j];
+      o=l.indexOf(h);
+      l.splice(o,1);
+      y.innerText=h;
+
+      v(h);
+     
+}
+lo=document.querySelector(".ll");
+
+  lo.addEventListener("click",()=>{
+    if(l.length>0){
+      kk();
+    }else{
+  alert("Game Finish, Click on NEW button for New Game")
+}
+  });
+
+
+
+
+    </script>
+</body>
+</html>

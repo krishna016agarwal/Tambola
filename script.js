@@ -1,50 +1,46 @@
-v=(h)=>{
-        console.log(h)
-       bb=document.querySelector(`#a${h}`);
-       bb.classList.add("ji")
+const c = document.querySelector(".main");
+const s = document.querySelector(".start");
+const n = document.querySelector(".number");
+const m = document.querySelector(".new");
+const l = [];
+var e;
+(function(){
+   e=prompt("enter a number");
+})()
 
-}
-hi=document.querySelector(".pannel");
 
-s=document.querySelector("#pp")
-s.addEventListener("click",()=>{
-  location.reload()})
-  y=document.querySelector("#jk");
- 
-l=[];
- function make(){
-  m=document.querySelector(".jjk");
-  for(let i=1;i<=90;i++){
-    l.push(i);
-  
-    a=document.createElement("div");
-    a.classList.add("jj");
-    a.innerHTML=i;
-    a.setAttribute("id","a"+i);
-    m.append(a);
-    
+getrandomnumber = () => {
+  if (l.length === 0) {
+    alert("Game over");
+    return null;
   }
-       
- 
- make()
- kk=()=>{
-      j=Math.floor(Math.random()*l.length);
-      
-     
-      h=l[j];
-      o=l.indexOf(h);
-      l.splice(o,1);
-      y.innerText=h;
 
-      v(h);
-     
-}
-lo=document.querySelector(".ll");
+  const index = Math.floor(Math.random() * l.length); // index from 0 to l.length - 1
+  console.log(index);
+  console.log(l);
 
-  lo.addEventListener("click",()=>{
-    if(l.length>0){
-      kk();
-    }else{
-  alert("Game Finish, Click on NEW button for New Game")
+  function speakNumber(number) {
+    const utterance = new SpeechSynthesisUtterance(number.toString());
+    speechSynthesis.speak(utterance);
+  }
+
+  const number = l[index];
+  n.innerText = number;
+  const g = document.querySelector(`.a${number}`);
+  g.classList.remove("number");
+  g.classList.add("open");
+  speakNumber(number);
+  l.splice(index, 1); // Remove the number from array
+  return number;
+};
+m.addEventListener("click", () => location.reload());
+
+s.addEventListener("click", () => {
+  getrandomnumber();
+});
+
+for (let i = 1; i <= e; i++) {
+  l.push(i);
+  c.innerHTML += `
+  <div class="number a${i}"> ${i} </div>`;
 }
-  });

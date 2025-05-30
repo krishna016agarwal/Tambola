@@ -16,8 +16,7 @@ getrandomnumber = () => {
   }
 
   const index = Math.floor(Math.random() * l.length); // index from 0 to l.length - 1
-  console.log(index);
-  console.log(l);
+ 
 
   function speakNumber(number) {
     const utterance = new SpeechSynthesisUtterance(number.toString());
